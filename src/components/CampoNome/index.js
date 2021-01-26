@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import db from "../../../db.json";
+import db from '../../../db.json';
 
 const CampoNome = styled.input`
     margin-top: 30px;
@@ -13,6 +13,6 @@ const CampoNome = styled.input`
     font-size: 1.4rem;
     line-height: 2rem;
     color: ${db.theme.colors.contrastText}55;
-`
+`;
 
 export default CampoNome;

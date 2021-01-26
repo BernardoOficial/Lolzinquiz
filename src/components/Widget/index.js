@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import db from "../../../db.json";
+import db from '../../../db.json';
 
 const Widget = styled.section`
   max-width: 350px;
@@ -22,17 +22,17 @@ const Widget = styled.section`
     font-size: 1.4rem;
     line-height: 2rem;
   }
-`
+`;
 
 Widget.Header = styled.article`
   background-color: ${db.theme.colors.primary};
   padding: 20px 30px;
-`
+`;
 
 Widget.Content = styled.article`
   border-radius: ${db.theme.borderRadius};
   background-color: ${db.theme.colors.mainBg};
   padding: 20px 30px;
-`
+`;
 
 export default Widget;

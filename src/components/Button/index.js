@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import db from "../../../db.json";
+import styled from 'styled-components';
+import db from '../../../db.json';
 
 const Button = styled.button`
     margin-top: 30px;
@@ -24,6 +24,6 @@ const Button = styled.button`
         letter-spacing: 5px;
         background-color: ${db.theme.colors.secondary}cc;
     }
-`
+`;
 
 export default Button;
