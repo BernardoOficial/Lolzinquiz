@@ -13,6 +13,10 @@ const CampoNome = styled.input`
     font-size: 1.4rem;
     line-height: 2rem;
     color: ${db.theme.colors.contrastText}55;
+
+    &:focus {
+        border: 1px solid ${db.theme.colors.contrastText}99;
+    }
 `;
 
 export default CampoNome;

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import db from '../db.json';
-import { useRouter } from 'next/router';
 
 import QuizBackground from '../src/components/QuizBackground';
 import Wrapper from '../src/components/Wrapper';
@@ -11,11 +10,7 @@ import CampoNome from '../src/components/CampoNome';
 import Button from '../src/components/Button';
 import QuizLogo from '../src/components/QuizLogo';
 
-function Home() {
-
-  const router = useRouter();
-  const [nome, setNome] = useState('');
-
+function Quiz() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Wrapper>
@@ -26,24 +21,8 @@ function Home() {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
-            <form onSubmit={(evento) => {
-              evento.preventDefault();
-              router.push(`/quiz?name=${nome}`);
-            }}>
-              <CampoNome
-                onChange={(evento) => {
-                  setNome(evento.target.value);
-                }}
-                placeholder="Diz aí seu nome pra jogar :)"
-                value={nome}
-              />
-              <Button
-                type="submit"
-                disabled={nome.length === 0}
-              >
-                Jogar
-              </Button>
-            </form>
+            <CampoNome placeholder="Diz aí seu nome pra jogar :)" />
+            <Button>Jogar</Button>
           </Widget.Content>
         </Widget>
         <Widget>
@@ -61,4 +40,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Quiz;

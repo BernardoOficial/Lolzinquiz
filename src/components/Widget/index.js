@@ -9,7 +9,6 @@ const Widget = styled.section`
   background-color: ${db.theme.colors.primary};
   padding: 0 5px 5px 5px;
   margin-bottom: 25px;
-  margin-left: 80px;
   overflow: hidden;
 
   h1, h2, h3 {

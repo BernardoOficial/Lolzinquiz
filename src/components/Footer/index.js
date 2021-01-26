@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
   width: 350px;
-  margin-left: 80px;
   background-color: #00000070;
   padding: 20px;
   display: flex;
@@ -28,7 +27,7 @@ const FooterWrapper = styled.footer`
 
 export default function Footer(props) {
   return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
       <a href="https://www.alura.com.br/">
         <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
