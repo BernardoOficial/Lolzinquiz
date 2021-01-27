@@ -30,6 +30,18 @@
                 "2015",
                 "2008"
             ]
+        },
+        {
+            "image": "https://theme.zdassets.com/theme_assets/43400/87a1ef48e43b8cf114017e3ad51b801951b20fcf.jpg",
+            "title": "Quando foi lançado o primeiro filme do homem de ferro?",
+            "description": "Considere somente os filmes novos da Marvel",
+            "answer": 2,
+            "alternatives": [
+                "2020",
+                "2019",
+                "2015",
+                "2008"
+            ]
         }
     ],
     "external": [

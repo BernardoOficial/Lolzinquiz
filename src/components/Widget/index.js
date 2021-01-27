@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import db from '../../../db.json';
 
 const Widget = styled.section`
+  width: 100%;
   max-width: 350px;
   border: 1px solid ${db.theme.colors.primary};
   border-radius: ${db.theme.borderRadius};
@@ -18,7 +19,6 @@ const Widget = styled.section`
   }
 
   @media screen and (max-width: 590px) {
-        width: 100%;
         max-width: initial;
     }
 

@@ -55,6 +55,7 @@ function Home() {
             </Texto>
             <form onSubmit={handleFormSubmit}>
               <CampoNome
+                name="nomeDoUsuario"
                 onChange={handleInputChange}
                 placeholder="Diz aí seu nome pra jogar :)"
                 value={nome}
