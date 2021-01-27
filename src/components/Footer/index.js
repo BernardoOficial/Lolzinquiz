@@ -23,6 +23,11 @@ const FooterWrapper = styled.footer`
       text-decoration: underline;
     }
   }
+
+  @media screen and (max-width: 590px) {
+        width: 100%;
+  }
+
 `;
 
 export default function Footer(props) {

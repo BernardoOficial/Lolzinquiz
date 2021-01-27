@@ -12,8 +12,9 @@ const QuizBackground = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding: 0 30px;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 590px) {
     background-image: none;
     
     &:after {
@@ -34,7 +35,6 @@ const QuizBackground = styled.div`
     }
 
     *:first-child {
-      position: relative;
       z-index: 10;
     }
 

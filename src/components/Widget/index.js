@@ -7,7 +7,7 @@ const Widget = styled.section`
   border-radius: ${db.theme.borderRadius};
 
   background-color: ${db.theme.colors.primary};
-  padding: 0 5px 5px 5px;
+  padding: 0 3px 3px 3px;
   margin-bottom: 25px;
   overflow: hidden;
 
@@ -17,10 +17,11 @@ const Widget = styled.section`
     font-weight: bold;
   }
 
-  p {
-    font-size: 1.4rem;
-    line-height: 2rem;
-  }
+  @media screen and (max-width: 590px) {
+        width: 100%;
+        max-width: initial;
+    }
+
 `;
 
 Widget.Header = styled.article`

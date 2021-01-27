@@ -1,28 +1,34 @@
 {
-    "bg": "https://i.pinimg.com/originals/7e/a5/26/7ea526eefacecfb3e01c04963b854d8d.jpg",
+    "bg": {
+        "primary": "https://i.pinimg.com/originals/7e/a5/26/7ea526eefacecfb3e01c04963b854d8d.jpg",
+        "secondary": "https://images6.alphacoders.com/344/thumb-1920-344715.jpg",
+        "third": "https://i.pinimg.com/originals/ba/7e/c4/ba7ec4d63a3362ae06b2d203abea560a.jpg"
+    },
     "title": "The legend of League of Legends",
     "description": "Teste os seus conhecimentos sobre Lolzinho e divirta-se criando o seu AluraQuiz!",
     "questions": [
         {
-            "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-            "title": "Como fazer um seletor por id via CSS?",
-            "description": "Essa é pra aquecer",
+            "image": "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+            "title": "Quando foi lançado League of Legends?",
+            "description": "Só quem ama de verdade o jogo vai saber...",
             "answer": 2,
             "alternatives": [
-                ".elemento",
-                "*elemento",
-                "#elemento",
-                "%elemento"
+                "2000",
+                "2015",
+                "2012",
+                "2009"
             ]
         },
         {
-            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-            "title": "Como fazer um background gradiente com css?",
-            "description": "Faz tempo em haha",
-            "answer": 0,
+            "image": "https://theme.zdassets.com/theme_assets/43400/87a1ef48e43b8cf114017e3ad51b801951b20fcf.jpg",
+            "title": "Quando foi lançado o primeiro filme do homem de ferro?",
+            "description": "Considere somente os filmes novos da Marvel",
+            "answer": 2,
             "alternatives": [
-                "background: linear-gradient(#e66465, #9198e5);",
-                "background: gradient(#e66465, #9198e5);"
+                "2020",
+                "2019",
+                "2015",
+                "2008"
             ]
         }
     ],

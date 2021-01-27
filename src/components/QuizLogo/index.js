@@ -35,8 +35,6 @@ Logo.propTypes = {
 const QuizLogo = styled(Logo)`
   margin-bottom: 40px;
   display: inline-block;
-  @media screen and (max-width: 500px) {
-  }
 `;
 
 export default QuizLogo;
