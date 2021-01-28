@@ -52,7 +52,8 @@
             "primary": "#f9a825",
             "secondary": "#5c6bc0",
             "mainBg": "#1C1814",
-            "colorText": "#000000",
+            "secondaryBg": "#979797",
+            "colorText": "#222222",
             "contrastText": "#FFFFFF",
             "wrong": "#c62828",
             "success": "#4CAF50"
