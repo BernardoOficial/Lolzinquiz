@@ -18,6 +18,25 @@ import Erro from '../src/components/Resultado/Erro';
 import ItemResultadosAlternativa from '../src/components/ItemResultadoAlternativa';
 import ListaResultadosAlternativa from '../src/components/ListaResultadoAlternativa';
 
+function getRepositorioJogadorUrl() {
+  // https://lolzinquiz-git-main.bernardooficial.vercel.app/
+  // https://lolzinquiz-git-main.bernardooficial.vercel.app/quiz?name=Bernardo
+  const url = window.location.href;
+  const repositorioJogador = url
+    .replace(/https:\/\/lolzinquiz\-git\-main\./g, '')
+    .replace(/\.vercel\.app\//g, '');
+
+  const nomeJogador = url.replace(/https:\/\/lolzinquiz\-\git\-main\.bernardooficial\.vercel\.app\/quiz\?name=/g, '');
+  return (repositorioJogador, nomeJogador);
+}
+
+function getNomeJogadorUrl() {
+  // http://localhost:3000/quiz?name=Bernardo
+  const url = window.location.href;
+  const nomeJogador = url.replace(/http:\/\/localhost:3000\/quiz\?name=/g, '');
+  return nomeJogador;
+}
+
 function LoadingWidget() {
   return (
     <Widget>
@@ -95,6 +114,10 @@ function QuestionWidget({
 }
 
 function Resultado({ resultados }) {
+
+  console.log(getRepositorioJogadorUrl());
+  console.log(getNomeJogadorUrl());
+
   const totalDePontos = resultados
     .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
 
@@ -112,7 +135,7 @@ function Resultado({ resultados }) {
           size="1.6rem"
           lineHeight="2.2rem"
         >
-          {'Mandou bem, {Nome}!'}
+          {`Mandou bem, ${getNomeJogadorUrl()}!`}
         </Texto>
         <Texto
           size="1.6rem"
