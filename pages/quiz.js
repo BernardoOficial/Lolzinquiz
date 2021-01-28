@@ -13,6 +13,10 @@ import Titulo from '../src/components/Titulo';
 import Form from '../src/components/FormAlternativas/Form';
 import Button from '../src/components/Button';
 import Link from '../src/components/Link';
+import Correto from '../src/components/Resultado/Correto';
+import Erro from '../src/components/Resultado/Erro';
+import ItemResultadosAlternativa from '../src/components/ItemResultadoAlternativa';
+import ListaResultadosAlternativa from '../src/components/ListaResultadoAlternativa';
 
 function LoadingWidget() {
   return (
@@ -38,12 +42,11 @@ function LoadingWidget() {
 }
 
 function QuestionWidget({
-  questionIndex, questionsLength, question, onSubmit, resultados, setResultados,
+  questionIndex, questionsLength, question, onSubmit, addResultados,
 }) {
   const [selectedAlternative, setSelectedAlternative] = useState(undefined);
   const [isQuestionSubmited, setIsQuestionSubmited] = useState(false);
   const isCorrect = question.answer === selectedAlternative && selectedAlternative !== undefined;
-  const isWarning = question.answer !== selectedAlternative && selectedAlternative !== undefined;
   const hasAlternativeSelected = selectedAlternative !== undefined;
 
   return (
@@ -73,17 +76,17 @@ function QuestionWidget({
         <Form
           question={question}
           onSubmit={onSubmit}
+          isQuestionSubmited={isQuestionSubmited}
+          selectedAlternative={selectedAlternative}
           setIsQuestionSubmited={setIsQuestionSubmited}
           setSelectedAlternative={setSelectedAlternative}
           hasAlternativeSelected={hasAlternativeSelected}
           isCorrect={isCorrect}
-          resultados={resultados}
-          setResultados={setResultados}
+          addResultados={addResultados}
         />
 
-        {console.log(isQuestionSubmited, isCorrect, isQuestionSubmited, isWarning)}
-        {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
-        {isQuestionSubmited && isWarning && <p>Você errou!</p>}
+        {isQuestionSubmited && isCorrect && <Correto />}
+        {isQuestionSubmited && !isCorrect && <Erro />}
 
       </Widget.Content>
 
@@ -92,10 +95,8 @@ function QuestionWidget({
 }
 
 function Resultado({ resultados }) {
-  console.log(resultados);
   const totalDePontos = resultados
     .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
-  console.log(totalDePontos);
 
   return (
     <Widget>
@@ -120,14 +121,14 @@ function Resultado({ resultados }) {
           {`Você fez ${totalDePontos} pontos, parabéns!`}
         </Texto>
 
-        <ul>
+        <ListaResultadosAlternativa>
           {resultados.map((resultado, resultadoIndex) => (
-            <li key={resultadoIndex}>
-              {`${resultadoIndex + 1}ª Questão: ${resultado ? 'Você acertou' : 'Você errou'}`}
-            </li>
+            <ItemResultadosAlternativa key={resultadoIndex} data-status={resultado ? 'correto' : 'erro'}>
+              {`${resultadoIndex + 1}ª Questão: ${resultado ? 'você acertou' : 'você errou'}`}
+            </ItemResultadosAlternativa>
           ))}
 
-        </ul>
+        </ListaResultadosAlternativa>
 
         <Button
           bgColor={db.theme.colors.wrong}
@@ -139,7 +140,7 @@ function Resultado({ resultados }) {
         <Link
           href="/"
         >
-          Voltar para a home
+          Voltar para o início
         </Link>
 
       </Widget.Content>
@@ -177,6 +178,13 @@ function Quiz() {
     }
   }
 
+  function addResultados(resultado) {
+    setResultados([
+      ...resultados,
+      resultado,
+    ]);
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg.secondary}>
       <Wrapper>
@@ -192,6 +200,7 @@ function Quiz() {
           onSubmit={formSubmitQuiz}
           resultados={resultados}
           setResultados={setResultados}
+          addResultados={addResultados}
         />
         )}
 

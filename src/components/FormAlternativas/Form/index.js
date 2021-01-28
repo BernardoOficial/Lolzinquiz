@@ -7,7 +7,7 @@ import Radio from '../Radio';
 import Button from '../../Button';
 
 function Formulario({
-  question, className, onSubmit, setSelectedAlternative, setIsQuestionSubmited, hasAlternativeSelected, isCorrect, resultados, setResultados,
+  question, className, onSubmit, isQuestionSubmited, selectedAlternative, setSelectedAlternative, setIsQuestionSubmited, hasAlternativeSelected, isCorrect, addResultados,
 }) {
   return (
     <form
@@ -15,9 +15,7 @@ function Formulario({
       onSubmit={(evento) => {
         evento.preventDefault();
         setIsQuestionSubmited(true);
-
-        const arrayStateResultados = [...resultados, isCorrect];
-        setResultados(arrayStateResultados);
+        addResultados(isCorrect);
 
         setTimeout(() => {
           onSubmit();
@@ -26,24 +24,31 @@ function Formulario({
         }, 2000);
       }}
     >
-      {question.alternatives.map((alternativa, alternativaIndex) => (
-        <div className="wrapper" key={alternativaIndex}>
-          <Radio
-            id={alternativaIndex}
-            name="alternativa"
-            type="radio"
-            value={alternativaIndex}
-            defaultChecked={false}
-            onChange={() => setSelectedAlternative(alternativaIndex)}
-          />
-          <Label
-            htmlFor={alternativaIndex}
-          >
-            {alternativa}
-          </Label>
-        </div>
+      {question.alternatives.map((alternativa, alternativaIndex) => {
+        const selected = selectedAlternative === alternativaIndex;
+        const alternativaStatus = isCorrect ? 'correto' : 'erro';
 
-      ))}
+        return (
+          <div className="wrapper" key={alternativaIndex}>
+            <Radio
+              id={alternativaIndex}
+              name="alternativa"
+              type="radio"
+              value={alternativaIndex}
+              defaultChecked={false}
+              onChange={() => setSelectedAlternative(alternativaIndex)}
+            />
+            <Label
+              htmlFor={alternativaIndex}
+              data-selected={isQuestionSubmited && selected}
+              data-status={alternativaStatus}
+            >
+              {alternativa}
+            </Label>
+          </div>
+
+        );
+      })}
 
       <Button
         type="submit"

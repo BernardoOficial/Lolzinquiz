@@ -12,11 +12,21 @@ const Label = styled.label`
     letter-spacing: 1px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s ease-in;
+    transition: 0.2s linear;
 
     &:hover {
         color: ${db.theme.colors.colorText};
         background-color: ${db.theme.colors.primary};
+    }
+
+    &[data-selected="true"] {
+
+        &[data-status="erro"] {
+            background-color: ${({ theme }) => theme.colors.wrong};
+        }
+        &[data-status="correto"] {
+            background-color: ${({ theme }) => theme.colors.success};
+        }
     }
 `;
 
