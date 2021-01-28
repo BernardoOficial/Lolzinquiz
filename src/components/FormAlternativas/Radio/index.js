@@ -10,9 +10,9 @@ const Radio = styled.input`
         background-color: ${db.theme.colors.primary};
     }
 
-    &:checked {
+    /* &:checked {
         display: none;
-    }
+    } */
 `;
 
 export default Radio;

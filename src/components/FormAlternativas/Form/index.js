@@ -6,9 +6,27 @@ import Label from '../Label/Label';
 import Radio from '../Radio';
 import Button from '../../Button';
 
-function Formulario({ question, className, onSubmit }) {
+function Formulario({
+  question, className, onSubmit, setSelectedAlternative, setIsQuestionSubmited, hasAlternativeSelected, isCorrect, resultados, setResultados,
+}) {
   return (
-    <form className={className} onSubmit={onSubmit}>
+    <form
+      className={className}
+      onSubmit={(evento) => {
+        evento.preventDefault();
+        setIsQuestionSubmited(true);
+        setSelectedAlternative(undefined);
+
+        const arrayStateResultados = [...resultados, isCorrect];
+        arrayStateResultados.push(isCorrect);
+        setResultados(arrayStateResultados);
+
+        setTimeout(() => {
+          onSubmit();
+          setIsQuestionSubmited(false);
+        }, 2000);
+      }}
+    >
       {question.alternatives.map((alternativa, alternativaIndex) => (
         <div className="wrapper" key={alternativaIndex}>
           <Radio
@@ -17,6 +35,7 @@ function Formulario({ question, className, onSubmit }) {
             type="radio"
             value={alternativaIndex}
             defaultChecked={false}
+            onChange={() => setSelectedAlternative(alternativaIndex)}
           />
           <Label
             htmlFor={alternativaIndex}
@@ -27,7 +46,12 @@ function Formulario({ question, className, onSubmit }) {
 
       ))}
 
-      <Button type="submit">Confirmar</Button>
+      <Button
+        type="submit"
+        disabled={!hasAlternativeSelected}
+      >
+        Confirmar
+      </Button>
     </form>
   );
 }

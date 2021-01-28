@@ -38,15 +38,21 @@ function LoadingWidget() {
 }
 
 function QuestionWidget({
-  questionIndex, questionsLength, question, onSubmit,
+  questionIndex, questionsLength, question, onSubmit, resultados, setResultados
 }) {
+
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const [isQuestionSubmited, setIsQuestionSubmited] = useState(false);
+  const isCorrect = question.answer === selectedAlternative && selectedAlternative !== undefined;
+  // const isWarning = question.answer !== selectedAlternative && selectedAlternative !== undefined;
+  const hasAlternativeSelected = selectedAlternative !== undefined;
 
   return (
     <Widget>
 
       <Widget.Header>
         <h1>
-          {`Pergunta ${questionIndex + 1} de ${questionsLength + 1}`}
+          {`Pergunta ${questionIndex + 1} de ${questionsLength}`}
         </h1>
         <ThumbQuestao backgroundImage={question.image} />
       </Widget.Header>
@@ -68,7 +74,16 @@ function QuestionWidget({
         <Form
           question={question}
           onSubmit={onSubmit}
+          setIsQuestionSubmited={setIsQuestionSubmited}
+          setSelectedAlternative={setSelectedAlternative}
+          hasAlternativeSelected={hasAlternativeSelected}
+          isCorrect={isCorrect}
+          resultados={resultados}
+          setResultados={setResultados}
         />
+
+        {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
+        {isQuestionSubmited && !isCorrect && <p>Você errou!</p>}
 
       </Widget.Content>
 
@@ -91,19 +106,21 @@ function Resultado() {
           size="1.6rem"
           lineHeight="2.2rem"
         >
-          {`Mandou bem, {Nome}!`}
+          {'Mandou bem, {Nome}!'}
         </Texto>
         <Texto
           size="1.6rem"
           lineHeight="2.4rem"
         >
-          {`Você fez 100 pontos, parabéns!`}
+          Você fez 100 pontos, parabéns!
         </Texto>
 
         <Button
           bgColor={db.theme.colors.wrong}
           fontSize="1.4rem"
-        >ADICIONAR AO MEU PROJETO</Button>
+        >
+          ADICIONAR AO MEU PROJETO
+        </Button>
 
         <Link
           href="/"
@@ -129,20 +146,19 @@ function Quiz() {
   const questionIndex = currentQuestion;
   const questionsLength = db.questions.length;
   const question = db.questions[questionIndex];
+  const [resultados, setResultados] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
       setStateScren(statesScreen.quiz);
-    }, 2000);
+    }, 1000);
   }, []);
 
-  function formSubmitQuiz(evento) {
-    evento.preventDefault();
+  function formSubmitQuiz() {
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < questionsLength) {
       setCurrentQuestion(questionIndex + 1);
-    }
-    else {
+    } else {
       setStateScren(statesScreen.resultado);
     }
   }
@@ -160,10 +176,12 @@ function Quiz() {
           questionsLength={questionsLength}
           question={question}
           onSubmit={formSubmitQuiz}
+          resultados={resultados}
+          setResultados={setResultados}
         />
         )}
 
-        {stateScreen === 'resultado' && <Resultado />}
+        {stateScreen === 'resultado' && <Resultado resultados={resultados} />}
 
         <Footer />
         <GitHubCorner projectUrl="https://github.com/BernardoOficial" />
