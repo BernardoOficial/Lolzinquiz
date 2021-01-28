@@ -11,6 +11,18 @@ const Widget = styled.section`
   padding: 0 3px 3px 3px;
   margin-bottom: 25px;
   overflow: hidden;
+  animation: 0.5s ease-in forwards scaleWidget;
+
+  @keyframes scaleWidget {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
   h1, h2, h3 {
     font-size: 1.6rem;
@@ -20,7 +32,7 @@ const Widget = styled.section`
 
   @media screen and (max-width: 590px) {
         max-width: initial;
-    }
+  }
 
 `;
 
