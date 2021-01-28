@@ -38,13 +38,12 @@ function LoadingWidget() {
 }
 
 function QuestionWidget({
-  questionIndex, questionsLength, question, onSubmit, resultados, setResultados
+  questionIndex, questionsLength, question, onSubmit, resultados, setResultados,
 }) {
-
   const [selectedAlternative, setSelectedAlternative] = useState(undefined);
   const [isQuestionSubmited, setIsQuestionSubmited] = useState(false);
   const isCorrect = question.answer === selectedAlternative && selectedAlternative !== undefined;
-  // const isWarning = question.answer !== selectedAlternative && selectedAlternative !== undefined;
+  const isWarning = question.answer !== selectedAlternative && selectedAlternative !== undefined;
   const hasAlternativeSelected = selectedAlternative !== undefined;
 
   return (
@@ -82,8 +81,9 @@ function QuestionWidget({
           setResultados={setResultados}
         />
 
+        {console.log(isQuestionSubmited, isCorrect, isQuestionSubmited, isWarning)}
         {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
-        {isQuestionSubmited && !isCorrect && <p>Você errou!</p>}
+        {isQuestionSubmited && isWarning && <p>Você errou!</p>}
 
       </Widget.Content>
 
@@ -91,7 +91,12 @@ function QuestionWidget({
   );
 }
 
-function Resultado() {
+function Resultado({ resultados }) {
+  console.log(resultados);
+  const totalDePontos = resultados
+    .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
+  console.log(totalDePontos);
+
   return (
     <Widget>
 
@@ -112,8 +117,17 @@ function Resultado() {
           size="1.6rem"
           lineHeight="2.4rem"
         >
-          Você fez 100 pontos, parabéns!
+          {`Você fez ${totalDePontos} pontos, parabéns!`}
         </Texto>
+
+        <ul>
+          {resultados.map((resultado, resultadoIndex) => (
+            <li key={resultadoIndex}>
+              {`${resultadoIndex + 1}ª Questão: ${resultado ? 'Você acertou' : 'Você errou'}`}
+            </li>
+          ))}
+
+        </ul>
 
         <Button
           bgColor={db.theme.colors.wrong}

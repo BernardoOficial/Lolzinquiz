@@ -15,15 +15,14 @@ function Formulario({
       onSubmit={(evento) => {
         evento.preventDefault();
         setIsQuestionSubmited(true);
-        setSelectedAlternative(undefined);
 
         const arrayStateResultados = [...resultados, isCorrect];
-        arrayStateResultados.push(isCorrect);
         setResultados(arrayStateResultados);
 
         setTimeout(() => {
           onSubmit();
           setIsQuestionSubmited(false);
+          setSelectedAlternative(undefined);
         }, 2000);
       }}
     >
