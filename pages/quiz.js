@@ -20,21 +20,25 @@ import ListaResultadosAlternativa from '../src/components/ListaResultadoAlternat
 
 function getRepositorioJogadorUrl() {
   // https://lolzinquiz-git-main.bernardooficial.vercel.app/
-  // https://lolzinquiz-git-main.bernardooficial.vercel.app/quiz?name=Bernardo
-  const url = window.location.href;
-  const repositorioJogador = url
-    .replace(/https:\/\/lolzinquiz\-git\-main\./g, '')
-    .replace(/\.vercel\.app\//g, '');
 
-  const nomeJogador = url.replace(/https:\/\/lolzinquiz\-\git\-main\.bernardooficial\.vercel\.app\/quiz\?name=/g, '');
-  return (repositorioJogador, nomeJogador);
+  const url = window.location.href;
+
+  if (url === "https://lolzinquiz-git-main.bernardooficial.vercel.app/") {
+    const regex = new RegExp('^https.*main.(.*)\.vercel.*', 'g');
+    const match = regex.exec(url);
+    console.log(match);
+  }
 }
 
 function getNomeJogadorUrl() {
   // http://localhost:3000/quiz?name=Bernardo
   const url = window.location.href;
-  const nomeJogador = url.replace(/http:\/\/localhost:3000\/quiz\?name=/g, '');
-  return nomeJogador;
+
+  const regex = new RegExp('name=(.+)', 'g');
+  const match = regex.exec(url);
+  console.log(match[1]);
+
+  return match[1];
 }
 
 function LoadingWidget() {
@@ -114,9 +118,7 @@ function QuestionWidget({
 }
 
 function Resultado({ resultados }) {
-
   console.log(getRepositorioJogadorUrl());
-  console.log(getNomeJogadorUrl());
 
   const totalDePontos = resultados
     .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
