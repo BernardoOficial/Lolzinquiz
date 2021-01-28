@@ -12,6 +12,7 @@ import Texto from '../src/components/Texto';
 import Titulo from '../src/components/Titulo';
 import Form from '../src/components/FormAlternativas/Form';
 import Button from '../src/components/Button';
+import Link from '../src/components/Link';
 
 function LoadingWidget() {
   return (
@@ -99,13 +100,16 @@ function Resultado() {
           {`Você fez 100 pontos, parabéns!`}
         </Texto>
 
-        <Button>ADICIONAR AO MEU PROJETO</Button>
+        <Button
+          bgColor={db.theme.colors.wrong}
+          fontSize="1.4rem"
+        >ADICIONAR AO MEU PROJETO</Button>
 
-        <a
+        <Link
           href="/"
         >
-          Voltar para a homes
-        </a>
+          Voltar para a home
+        </Link>
 
       </Widget.Content>
 

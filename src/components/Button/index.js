@@ -13,10 +13,10 @@ const Button = styled.button`
 
     width: 100%;
 
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     color: ${db.theme.colors.contrastText};
-    letter-spacing: 6px;
+    letter-spacing: 4px;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;

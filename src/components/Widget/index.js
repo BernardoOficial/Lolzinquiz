@@ -3,7 +3,7 @@ import db from '../../../db.json';
 
 const Widget = styled.section`
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   border: 1px solid ${db.theme.colors.primary};
   border-radius: ${db.theme.borderRadius};
 
