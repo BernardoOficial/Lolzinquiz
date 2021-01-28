@@ -20,27 +20,111 @@
             ]
         },
         {
-            "image": "https://theme.zdassets.com/theme_assets/43400/87a1ef48e43b8cf114017e3ad51b801951b20fcf.jpg",
-            "title": "Quando foi lançado o primeiro filme do homem de ferro?",
-            "description": "Considere somente os filmes novos da Marvel",
-            "answer": 3,
+            "image": "https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-league-display-2017/pt_BR/cb24025fade09e3f965776440dffcc65024d3266/assets/img/content/splash/content-original-championillustrations-group-slashes.jpg",
+            "title": "Qual equipe venceu o Mundial de 2017 de League of Legends?",
+            "description": "Essa equipe ganhou bastante no cenário competitivo",
+            "answer": 2,
             "alternatives": [
-                "2020",
-                "2019",
-                "2015",
-                "2008"
+                "PaiN Gaming",
+                "Samsung Galaxy",
+                "SKT T1",
+                "Unicorns of Love"
             ]
         },
         {
-            "image": "https://theme.zdassets.com/theme_assets/43400/87a1ef48e43b8cf114017e3ad51b801951b20fcf.jpg",
-            "title": "Quando foi lançado o primeiro filme do homem de ferro?",
-            "description": "Considere somente os filmes novos da Marvel",
+            "image": "https://gamehall.com.br/wp-content/uploads/2017/05/League-of-Legends-wallpaper-730x411.jpg",
+            "title": "Quem é a irmã de Kayle?",
+            "description": "Ela é maligna",
+            "answer": 1,
+            "alternatives": [
+                "Katarina",
+                "Morgana",
+                "Tristana",
+                "Senna"
+            ]
+        },
+        {
+            "image": "https://pbs.twimg.com/media/DKQ9xMCWkAA5FPz.jpg",
+            "title": "Na skin padrão de Jax, quantos olhos ele tem?",
+            "description": "São muitos kkk",
             "answer": 3,
             "alternatives": [
-                "2020",
-                "2019",
-                "2015",
-                "2008"
+                "2",
+                "3",
+                "4",
+                "6"
+            ]
+        },
+        {
+            "image": "https://wallpapercave.com/wp/wp3159847.jpg",
+            "title": "Renekton é o irmão de:",
+            "description": "Duelo entre eles é sempre difícil",
+            "answer": 0,
+            "alternatives": [
+                "Nasus",
+                "Urgot",
+                "Jayce",
+                "Garen"
+            ]
+        },
+        {
+            "image": "https://wallpaperaccess.com/full/1462673.jpg",
+            "title": "Qual o campeão conhecido como Amoeba no League of Legends?",
+            "description": "A-M-O-E-B-A - a massinha de brincar",
+            "answer": 1,
+            "alternatives": [
+                "Teemo",
+                "Zac",
+                "Jax",
+                "Heimerdinger"
+            ]
+        },
+        {
+            "image": "https://images.wallpapersden.com/image/download/soraka-nightbringer-dawnbringer-lol_a21na2eUmZqaraWkpJRobWllrWdma2U.jpg",
+            "title": "Qual a cidade que a Fiora representa?",
+            "description": "Vish, essa quero ver...",
+            "answer": 1,
+            "alternatives": [
+                "Piltover",
+                "Demacia",
+                "Bandle City",
+                "Ionia"
+            ]
+        },
+        {
+            "image": "https://images.wallpapersden.com/image/download/soraka-nightbringer-dawnbringer-lol_a21na2eUmZqaraWkpJRobWllrWdma2U.jpg",
+            "title": "Qual menor campeão do jogo League of Legends?",
+            "description": "Anão mano",
+            "answer": 3,
+            "alternatives": [
+                "Tristana",
+                "Annie",
+                "Ashe",
+                "Teemo"
+            ]
+        },
+        {
+            "image": "https://3.bp.blogspot.com/-_62Ir3L94AI/XKaGfStyHqI/AAAAAAAAE14/IvRz_uSOg2oRPqnBRY60RKHgMIngHN6WwCKgBGAs/w1920-h1080-c/galaxy-slayer-zed-splash-art-lol-uhdpaper.com-4K-64.jpg",
+            "title": "Qual o campeão que foi eleito pelos jogadores como o mais irritante?",
+            "description": "Sempre ele kkk",
+            "answer": 3,
+            "alternatives": [
+                "Jax",
+                "Master Yi",
+                "Annie",
+                "Teemo"
+            ]
+        },
+        {
+            "image": "https://pbs.twimg.com/media/EQM4j5iWkAA_Y-9.jpg",
+            "title": "Qual é o personagem que pode utilizar teleporte em aliados? (Na ultimate)",
+            "description": "Campeão robado demais",
+            "answer": 0,
+            "alternatives": [
+                "Shen",
+                "Nunu",
+                "Katarina",
+                "kayle"
             ]
         }
     ],
