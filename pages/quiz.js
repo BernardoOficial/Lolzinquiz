@@ -23,11 +23,14 @@ function getRepositorioJogadorUrl() {
 
   const url = window.location.href;
 
+  let match;
+
   if (url === "https://lolzinquiz-git-main.bernardooficial.vercel.app/") {
     const regex = new RegExp('^https.*main.(.*)\.vercel.*', 'g');
-    const match = regex.exec(url);
+    match = regex.exec(url);
     console.log(match);
   }
+  return match[1];
 }
 
 function getNomeJogadorUrl() {
