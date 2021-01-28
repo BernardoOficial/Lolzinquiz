@@ -18,20 +18,20 @@ import Erro from '../src/components/Resultado/Erro';
 import ItemResultadosAlternativa from '../src/components/ItemResultadoAlternativa';
 import ListaResultadosAlternativa from '../src/components/ListaResultadoAlternativa';
 
-function getRepositorioJogadorUrl() {
-  // https://lolzinquiz-git-main.bernardooficial.vercel.app/
+// function getRepositorioJogadorUrl() {
+//   // https://lolzinquiz-git-main.bernardooficial.vercel.app/
 
-  const url = window.location.href;
+//   const url = window.location.href;
 
-  let match;
+//   let match;
 
-  if (url === "https://lolzinquiz-git-main.bernardooficial.vercel.app/") {
-    const regex = new RegExp('^https.*main.(.*)\.vercel.*', 'g');
-    match = regex.exec(url);
-    console.log(match);
-  }
-  return match[1];
-}
+//   if (url === "https://lolzinquiz-git-main.bernardooficial.vercel.app/") {
+//     const regex = new RegExp('^https.*main.(.*)\.vercel.*', 'g');
+//     match = regex.exec(url);
+//     console.log(match);
+//   }
+//   return match[1];
+// }
 
 function getNomeJogadorUrl() {
   // http://localhost:3000/quiz?name=Bernardo
@@ -121,7 +121,6 @@ function QuestionWidget({
 }
 
 function Resultado({ resultados }) {
-  console.log(getRepositorioJogadorUrl());
 
   const totalDePontos = resultados
     .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
