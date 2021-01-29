@@ -123,9 +123,11 @@ function QuestionWidget({
 }
 
 function Resultado({ resultados }) {
-
   const totalDePontos = resultados
     .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
+
+  const lengthResultados = resultados.length * 100;
+  const foiBemNoJogo = (totalDePontos / lengthResultados) >= 0.5;
 
   return (
     <Widget>
@@ -141,13 +143,13 @@ function Resultado({ resultados }) {
           size="1.6rem"
           lineHeight="2.2rem"
         >
-          {`Mandou bem, ${getNomeJogadorUrl()}!`}
+          {foiBemNoJogo ? `Mandou bem ${getNomeJogadorUrl()}!` : `Precisa melhorar em ${getNomeJogadorUrl()} ;)`}
         </Texto>
         <Texto
           size="1.6rem"
           lineHeight="2.4rem"
         >
-          {`Você fez ${totalDePontos} pontos, parabéns!`}
+          {`Você fez ${totalDePontos} pontos`}
         </Texto>
 
         <ListaResultadosAlternativa>

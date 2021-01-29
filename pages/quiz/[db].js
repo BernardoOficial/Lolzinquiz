@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
-    context.req.redirect("http://lolzinquiz-git-main.bernardooficial.vercel.app/");
+    context.req.redirect('http://lolzinquiz-git-main.bernardooficial.vercel.app/');
     console.error(error);
   }
 }

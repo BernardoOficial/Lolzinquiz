@@ -18,15 +18,6 @@ import ItemResultadosAlternativa from '../../components/ItemResultadoAlternativa
 import ListaResultadosAlternativa from '../../components/ListaResultadoAlternativa';
 import BackLinkArrow from '../../components/BackLinkArrow';
 
-function getNomeJogadorUrl() {
-  const url = window.location.href;
-
-  const regex = new RegExp('name=(.+)', 'g');
-  const match = regex.exec(url);
-
-  return match[1];
-}
-
 function LoadingWidget() {
   return (
     <Widget>
@@ -107,6 +98,8 @@ function QuestionWidget({
 function Resultado({ resultados, dbExterno }) {
   const totalDePontos = resultados
     .reduce((totalDePontos, resultado) => (resultado ? totalDePontos += resultado * 100 : totalDePontos), 0);
+  const lengthResultados = resultados.length * 100;
+  const foiBemNoJogo = (totalDePontos / lengthResultados) >= 0.5;
 
   return (
     <Widget>
@@ -122,13 +115,13 @@ function Resultado({ resultados, dbExterno }) {
           size="1.6rem"
           lineHeight="2.2rem"
         >
-          {`Mandou bem, ${getNomeJogadorUrl()}!`}
+          {foiBemNoJogo ? 'Mandou bem!' : 'Precisa melhorar em ;)'}
         </Texto>
         <Texto
           size="1.6rem"
           lineHeight="2.4rem"
         >
-          {`Você fez ${totalDePontos} pontos, parabéns!`}
+          {`Você fez ${totalDePontos} pontos`}
         </Texto>
 
         <ListaResultadosAlternativa>
