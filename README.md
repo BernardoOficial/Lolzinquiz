@@ -11,7 +11,7 @@ Projeto realizado durante a semana da Imersão ReactJS e NextJS. Onde foi propos
 
 ## Imagem do projeto
 
-[Quizes da galera](./src/images/quiz-img.JPG)
+![Quizes da galera](./src/images/quiz-img.JPG)
 
 ## Apresentação do projeto
 
