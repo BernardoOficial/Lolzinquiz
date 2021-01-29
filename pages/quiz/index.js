@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import db from '../db.json';
+import db from '../../db.json';
 
-import QuizBackground from '../src/components/QuizBackground';
-import Wrapper from '../src/components/Wrapper';
-import Widget from '../src/components/Widget';
-import Footer from '../src/components/Footer';
-import GitHubCorner from '../src/components/GitHubCorner';
-import QuizLogo from '../src/components/QuizLogo';
-import ThumbQuestao from '../src/components/ThumbQuestao';
-import Texto from '../src/components/Texto';
-import Titulo from '../src/components/Titulo';
-import Form from '../src/components/FormAlternativas/Form';
-import Button from '../src/components/Button';
-import Link from '../src/components/Link';
-import Correto from '../src/components/Resultado/Correto';
-import Erro from '../src/components/Resultado/Erro';
-import ItemResultadosAlternativa from '../src/components/ItemResultadoAlternativa';
-import ListaResultadosAlternativa from '../src/components/ListaResultadoAlternativa';
+import QuizBackground from '../../src/components/QuizBackground';
+import Wrapper from '../../src/components/Wrapper';
+import Widget from '../../src/components/Widget';
+import Footer from '../../src/components/Footer';
+import GitHubCorner from '../../src/components/GitHubCorner';
+import QuizLogo from '../../src/components/QuizLogo';
+import ThumbQuestao from '../../src/components/ThumbQuestao';
+import Texto from '../../src/components/Texto';
+import Titulo from '../../src/components/Titulo';
+import Form from '../../src/components/FormAlternativas/Form';
+import Button from '../../src/components/Button';
+import Link from '../../src/components/Link';
+import Correto from '../../src/components/Resultado/Correto';
+import Erro from '../../src/components/Resultado/Erro';
+import ItemResultadosAlternativa from '../../src/components/ItemResultadoAlternativa';
+import ListaResultadosAlternativa from '../../src/components/ListaResultadoAlternativa';
+import BackLinkArrow from '../../src/components/BackLinkArrow';
 
 // function getRepositorioJogadorUrl() {
 //   // https://lolzinquiz-git-main.bernardooficial.vercel.app/
@@ -79,6 +80,7 @@ function QuestionWidget({
     <Widget>
 
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h1>
           {`Pergunta ${questionIndex + 1} de ${questionsLength}`}
         </h1>

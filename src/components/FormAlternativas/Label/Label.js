@@ -13,6 +13,7 @@ const Label = styled.label`
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s linear;
+    background-color: ${db.theme.colors.secondaryBg};
 
     &:hover {
         color: ${db.theme.colors.colorText};

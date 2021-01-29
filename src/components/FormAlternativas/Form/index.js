@@ -69,7 +69,7 @@ const Form = styled(Formulario)`
         align-items: center;
         overflow: hidden;
 
-        background-color: ${db.theme.colors.secondaryBg};
+        background-color: ${db.theme.colors.secondary};
         margin-top: 10px;
         border-radius: ${db.theme.borderRadius};
     }

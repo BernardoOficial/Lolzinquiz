@@ -12,6 +12,8 @@ import Button from '../src/components/Button';
 import QuizLogo from '../src/components/QuizLogo';
 import Texto from '../src/components/Texto';
 import Titulo from '../src/components/Titulo';
+import Link from '../src/components/Link';
+import NLink from '../src/components/NextLink';
 
 function Home() {
   const router = useRouter();
@@ -90,6 +92,19 @@ function Home() {
             >
               Dá uma olhada nesses quizes incríveis que o pessoal da Imersão Alguma coisa fez:
             </Texto>
+
+            <Widget.Topics>
+              {db.external.map((quiz, indexQuiz) => {
+                const regex = new RegExp('https://([^.]+)\.([^.]+)', 'g');
+                const [match, nomeProjeto, gitHubUser] = regex.exec(quiz);
+                return (
+                  <li key={indexQuiz}>
+                    <NLink href={`quiz/${nomeProjeto}___${gitHubUser}`}>{`${nomeProjeto}/${gitHubUser}`}</NLink>
+                  </li>
+                );
+              })}
+            </Widget.Topics>
+
           </Widget.Content>
 
         </Widget>

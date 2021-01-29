@@ -129,7 +129,9 @@
         }
     ],
     "external": [
-        ""
+        "https://alura-quiz-avengers.fernanda-kipper.vercel.app/",
+        "https://tsquiz.esterfania.vercel.app/",
+        "https://aluraquiz-base-git-main.alura-challenges.vercel.app/"
     ],
     "theme": {
         "colors": {
